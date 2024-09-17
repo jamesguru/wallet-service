@@ -35,5 +35,5 @@ func GetWallet(c echo.Context) error {
 }
 
 func GetWallets(c echo.Context) error {
-	return c.JSON(http.StatusOK, "This is wallet service after ci/cd")
+	return c.JSON(http.StatusOK, "This is wallet service after ci/cd updates")
 }
