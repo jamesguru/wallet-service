@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  wallet-service:
+    container_name: wallet-service
+    image: jameskagunga254/wallet-service:latest
+    restart: always
+    ports:
+      - "3002:3002"
+    networks:
+      - backend-network
+watchtower:
+  container_name: watchtower
+  image: containrrr/watchtower
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+  command: --interval 30 identity-service wallet-service
+
+networks:
+  backend_network:
+    driver: bridge
